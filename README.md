@@ -56,3 +56,5 @@ When running locally we won't need Xvfb (in most cases), while developing, and w
 And in another terminal (command line) window run the tests:
 
     bin/selenium_test
+
+test
