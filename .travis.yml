@@ -1,22 +1,21 @@
-#language is java
 language: java
-
-#tell travis which version of jdk to use
-jdk: 
- - openjdk7
- - oraclejdk7
- 
-#tell travis to build master branch
+jdk:
+- openjdk7
+- oraclejdk7
 branches:
- only:
-  - "master"
-
-script: mvn clean package compile test 
-
-#configure notifications
+  only:
+  - master
+script: mvn clean package compile test
 notifications:
- email:
-  recepients:
-   - johannesh10@ru.is
-  on_success: change
-  on_failure: always  
+  email:
+    recepients:
+    - johannesh10@ru.is
+    on_success: change
+    on_failure: always
+deploy:
+  provider: heroku
+  api_key:
+    secure: i+EcDtexq1r+eYOXRXWlPHxxpftgimE3dLUU0A30TegoDqQ1JaofdLd6EML7vQBWOxpAkyq690PqnPUrKFDAF7UbKl7tQdT3R3ZyVf6UpaQY4PQF8Akz1H5ZrDFfo/g2K9s1IVKMABylFYcQEfYXHn/MTlsnYFW8UPzwQpz6Oco=
+  app: staging-joezombie
+  on:
+    repo: joezombie/helloworld
